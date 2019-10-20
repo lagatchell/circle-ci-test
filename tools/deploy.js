@@ -11,10 +11,8 @@ client.on('ready', function () {
   client.end();
 });
 
-
 client.connect({
   host: HOST,
-  port: PORT,
   user: USERNAME,
   password: PASSWORD,
 });
