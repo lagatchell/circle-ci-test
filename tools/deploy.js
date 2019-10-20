@@ -6,9 +6,17 @@ const HOST = ENV.FTP_HOST;
 const PORT = ENV.FTP_SERVER_PORT || 21;
 
 const client = new FTPClient();
-client.on('ready', function () {
+client.on('greeting', (msg) => {
+  console.log(`Greeting: ${msg}`);
+});
+
+client.on('ready', () => {
   console.log("CONNECTED");
   client.end();
+});
+
+client.on('error', (err) => {
+  console.log(err);
 });
 
 client.connect({
