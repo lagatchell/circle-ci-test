@@ -35,6 +35,7 @@ jobs:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
                 paths:
                     - dist
+                    - package.json
     deploy:
         docker:
             - image: circleci/node:chakracore-10.13-browsers-legacy
@@ -49,7 +50,7 @@ jobs:
                 name: Install FTP
                 command: npm install --save-dev ftp
             - run:
-                name: Deploy Master to Firebase
+                name: Deploy to FTP Server
                 command: npm run deploy
 
 workflows:
