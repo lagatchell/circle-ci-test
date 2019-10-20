@@ -21,6 +21,7 @@ client.on('error', (err) => {
 
 client.connect({
   host: HOST,
+  port: PORT,
   user: USERNAME,
   password: PASSWORD,
 });
